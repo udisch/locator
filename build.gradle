@@ -13,6 +13,7 @@ repositories {
 dependencies {
     compile 'org.springframework:spring-core:4.2.0.RELEASE'
     compile 'org.glassfish.jersey.ext:jersey-spring3:2.19'
+    compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.20'
     compile 'org.springframework.data:spring-data-mongodb:1.7.2.RELEASE'
 
     compile 'org.slf4j:slf4j-api:1.7.12'

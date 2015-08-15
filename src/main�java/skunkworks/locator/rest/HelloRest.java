@@ -1,9 +1,10 @@
-package skunkworks.locator;
+package skunkworks.locator.rest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.*;
+import skunkworks.locator.HelloBean;
 import skunkworks.locator.data.objects.Place;
 import skunkworks.locator.data.repository.LocationRepository;
 
