@@ -22,9 +22,8 @@ public class PlacesActions {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(Place place) {
         Place createdPlace = repository.save(place);
-        URI createdURI = URI.create(createdPlace.getId());
+        URI createdURI = URI.create("place/" + createdPlace.getId());
 
-        // TODO URI missing "/place"
         return Response.created(createdURI).build();
     }
 
