@@ -28,6 +28,7 @@ public class PlacesActions {
         Place createdPlace = repository.save(placeToSave);
         URI createdURI = URI.create(createdPlace.getId());
 
+        // TODO wrong URI
         return Response.created(createdURI).build();
     }
 
