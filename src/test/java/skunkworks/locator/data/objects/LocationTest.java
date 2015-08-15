@@ -12,8 +12,8 @@ public class LocationTest {
         final double lat = -23.4354545;
 
         Location location = new Location().withCoordinates(lon, lat);
-        assertEquals(lon, location.getCoordinates().getLongitute(), 0.01);
-        assertEquals(lat, location.getCoordinates().getLatitude(), 0.01);
+        assertEquals(lon, location.getCoordinates().getX(), 0.01);
+        assertEquals(lat, location.getCoordinates().getY(), 0.01);
     }
 
 }

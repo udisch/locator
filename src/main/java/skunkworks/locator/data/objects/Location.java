@@ -1,18 +1,18 @@
 package skunkworks.locator.data.objects;
 
-public class Location {
+import org.springframework.data.geo.Point;
 
-    private static final String POINT = "Point";
+public class Location {
 
     private String type;
     private Point coordinates;
 
     public Location() {
-        type = POINT;
+        type = "Point";
     }
 
     public Location withCoordinates(double lon, double lat) {
-        coordinates = new Point().withCoordinates(lon, lat);
+        coordinates = new Point(lon, lat);
         return this;
     }
 
