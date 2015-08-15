@@ -11,8 +11,8 @@ public class PlaceTest {
         final double lon = 35.5452312;
         final double lat = -23.4354545;
         Place place = new Place().withLocation(new Location().withCoordinates(lon, lat));
-        assertEquals(lon, place.getLocation().getCoordinates().getX(), 0.01);
-        assertEquals(lat, place.getLocation().getCoordinates().getY(), 0.01);
+        assertEquals(lon, place.getLocation().getLongitude(), 0.01);
+        assertEquals(lat, place.getLocation().getLatitude(), 0.01);
     }
 
     @Test
@@ -20,8 +20,8 @@ public class PlaceTest {
         final double lon = 35.5452312;
         final double lat = -23.4354545;
         Place place = new Place().withCoordinates(lon, lat);
-        assertEquals(lon, place.getLocation().getCoordinates().getX(), 0.01);
-        assertEquals(lat, place.getLocation().getCoordinates().getY(), 0.01);
+        assertEquals(lon, place.getLocation().getLongitude(), 0.01);
+        assertEquals(lat, place.getLocation().getLatitude(), 0.01);
     }
 
     @Test
@@ -39,8 +39,8 @@ public class PlaceTest {
         Place place = new Place()
                 .withName(name)
                 .withLocation(new Location().withCoordinates(lon, lat));
-        assertEquals(lon, place.getLocation().getCoordinates().getX(), 0.01);
-        assertEquals(lat, place.getLocation().getCoordinates().getY(), 0.01);
+        assertEquals(lon, place.getLocation().getLongitude(), 0.01);
+        assertEquals(lat, place.getLocation().getLatitude(), 0.01);
         assertEquals(name, place.getName());
     }
 }

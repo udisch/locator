@@ -1,23 +1,31 @@
 package skunkworks.locator.data.objects;
 
-import org.springframework.data.geo.Point;
-
 public class Location {
 
+    private static final String TYPE_POINT = "Point";
+    private static final int COORDINATES_SIZE = 2;
+    private static final int LONGITUDE = 0;
+    private static final int LATITUDE = 1;
+
     private String type;
-    private Point coordinates;
+    private double[] coordinates;
 
     public Location() {
-        type = "Point";
+        type = TYPE_POINT;
     }
 
     public Location withCoordinates(double lon, double lat) {
-        coordinates = new Point(lon, lat);
+        coordinates = new double[COORDINATES_SIZE];
+        coordinates[LONGITUDE] = lon;
+        coordinates[LATITUDE] = lat;
         return this;
     }
 
-    // Point is immutable, safe to return it
-    public Point getCoordinates() {
-        return coordinates;
+    public double getLongitude() {
+        return coordinates[LONGITUDE];
+    }
+
+    public double getLatitude() {
+        return coordinates[LATITUDE];
     }
 }
