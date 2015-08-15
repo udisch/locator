@@ -21,14 +21,10 @@ public class PlacesActions {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(Place place) {
-        Place placeToSave = new Place()
-                .withLocation(place.getLocation())
-                .withName(place.getName());
-
-        Place createdPlace = repository.save(placeToSave);
+        Place createdPlace = repository.save(place);
         URI createdURI = URI.create(createdPlace.getId());
 
-        // TODO wrong URI
+        // TODO URI missing "/place"
         return Response.created(createdURI).build();
     }
 
