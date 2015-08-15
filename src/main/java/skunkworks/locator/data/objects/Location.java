@@ -1,5 +1,8 @@
 package skunkworks.locator.data.objects;
 
+import javax.xml.bind.annotation.XmlTransient;
+import java.util.Arrays;
+
 public class Location {
 
     private static final String TYPE_POINT = "Point";
@@ -21,11 +24,24 @@ public class Location {
         return this;
     }
 
+    @XmlTransient
     public double getLongitude() {
         return coordinates[LONGITUDE];
     }
 
+    @XmlTransient
     public double getLatitude() {
         return coordinates[LATITUDE];
+    }
+
+    public double[] getCoordinates() {
+        return coordinates;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "coordinates=" + Arrays.toString(coordinates) +
+                '}';
     }
 }

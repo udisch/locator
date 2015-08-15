@@ -19,16 +19,14 @@ public class PlacesActions {
     private LocationRepository repository;
 
     @POST
-    @Path("/{lon}/{lat}/{name}")
-    public Response create(@PathParam("name") String name,
-                       @PathParam("lon") double longitude,
-                       @PathParam("lat") double latitude) {
-        Place place = new Place()
-                .withCoordinates(longitude, latitude)
-                .withName(name);
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response create(Place place) {
+        Place placeToSave = new Place()
+                .withLocation(place.getLocation())
+                .withName(place.getName());
 
-        Place createdPlace = repository.save(place);
-        URI createdURI = URI.create("/place" + createdPlace.getId());
+        Place createdPlace = repository.save(placeToSave);
+        URI createdURI = URI.create(createdPlace.getId());
 
         return Response.created(createdURI).build();
     }
