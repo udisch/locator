@@ -17,6 +17,11 @@ public class Place {
         return this;
     }
 
+    public Place withCoordinates(double lon, double lat) {
+        this.location = new Location().withCoordinates(lon, lat);
+        return this;
+    }
+
     public Place withName(String name) {
         this.name = name;
         return this;
