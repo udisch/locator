@@ -28,7 +28,7 @@ public class PlacesActions {
     }
 
     @GET
-    @Path("/near/{dist}/{lon}/{lat}")
+    @Path("/near/{dist}/{lon},{lat}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getNear(@PathParam("dist") double distance,
                             @PathParam("lon") double longitude,
