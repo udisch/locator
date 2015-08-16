@@ -36,12 +36,10 @@ public class PlacesActions {
         Point point = new Point(longitude, latitude);
         Distance dist = new Distance(distance, Metrics.KILOMETERS);
 
-        GeoResults<Place> results = repository.findByLocationNear(point, dist);
+        GeoResults<Place> geoResults = repository.findByLocationNear(point, dist);
 
         List<Place> resultPlaces = new ArrayList<>();
-        for (GeoResult<Place> result : results) {
-            resultPlaces.add(result.getContent());
-        }
+        geoResults.forEach(geoResult -> resultPlaces.add(geoResult.getContent()));
 
         return Response.ok(resultPlaces).build();
     }
