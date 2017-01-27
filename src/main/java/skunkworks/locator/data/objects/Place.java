@@ -1,10 +1,10 @@
 package skunkworks.locator.data.objects;
 
-import org.springframework.data.annotation.Id;
+//import org.springframework.data.annotation.Id;
 
 public class Place {
 
-    @Id
+//    @Id
     private String id;
 
     private Location location;
