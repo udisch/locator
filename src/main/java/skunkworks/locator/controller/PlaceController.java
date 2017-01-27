@@ -1,32 +1,25 @@
-package skunkworks.locator.rest;
+package skunkworks.locator.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.geo.*;
-//import skunkworks.locator.data.objects.Place;
-//import skunkworks.locator.data.repository.LocationRepository;
-//
-//import javax.ws.rs.*;
-//import javax.ws.rs.core.MediaType;
-//import javax.ws.rs.core.Response;
-//import java.net.URI;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//@Path("/place")
-//public class PlacesActions {
-//
-//    @Autowired
-//    private LocationRepository repository;
-//
-//    @POST
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public Response create(Place place) {
-//        Place createdPlace = repository.save(place);
-//        URI createdURI = URI.create("place/" + createdPlace.getId());
-//
-//        return Response.created(createdURI).build();
-//    }
-//
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import skunkworks.locator.data.objects.Place;
+import skunkworks.locator.data.repository.LocationRepository;
+
+@RestController
+@RequestMapping("/place")
+public class PlaceController {
+
+    @Autowired
+    private LocationRepository locationRepository;
+
+    @RequestMapping(method = RequestMethod.POST)
+    public Place create(@RequestBody Place place) {
+        return locationRepository.save(place);
+    }
+
 //    @GET
 //    @Path("/near/{dist}/{lon},{lat}")
 //    @Produces(MediaType.APPLICATION_JSON)
@@ -57,4 +50,4 @@ import org.springframework.beans.factory.annotation.Autowired;
 //        }
 //        return Response.ok(place).build();
 //    }
-//}
+}
