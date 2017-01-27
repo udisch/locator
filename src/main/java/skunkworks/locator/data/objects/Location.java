@@ -6,10 +6,6 @@ import java.util.Arrays;
 public class Location {
 
     private static final String TYPE_POINT = "Point";
-    private static final int COORDINATES_SIZE = 2;
-    private static final int LONGITUDE = 0;
-    private static final int LATITUDE = 1;
-
     private String type;
     private double[] coordinates;
 
@@ -18,20 +14,20 @@ public class Location {
     }
 
     public Location withCoordinates(double lon, double lat) {
-        coordinates = new double[COORDINATES_SIZE];
-        coordinates[LONGITUDE] = lon;
-        coordinates[LATITUDE] = lat;
+        coordinates = new double[2];
+        coordinates[0] = lon;
+        coordinates[1] = lat;
         return this;
     }
 
     @XmlTransient
     public double getLongitude() {
-        return coordinates[LONGITUDE];
+        return coordinates[0];
     }
 
     @XmlTransient
     public double getLatitude() {
-        return coordinates[LATITUDE];
+        return coordinates[1];
     }
 
     public double[] getCoordinates() {
